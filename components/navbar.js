@@ -148,7 +148,7 @@ class CustomNavbar extends HTMLElement {
                   <i data-feather="user"></i>
                   Account
                 </a>
-<a href="/password.html" class="nav-link">
+<a href="password.html" class="nav-link">
                   <i data-feather="settings"></i>
                   Admin
                 </a>
@@ -175,3 +175,4 @@ class CustomNavbar extends HTMLElement {
   }
 }
 customElements.define('custom-navbar', CustomNavbar);
+
