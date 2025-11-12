@@ -1,4 +1,3 @@
-
 class CustomNavbar extends HTMLElement {
   connectedCallback() {
     this.attachShadow({ mode: 'open' });
@@ -117,14 +116,14 @@ class CustomNavbar extends HTMLElement {
       <nav>
         <div class="container">
           <div class="flex justify-between">
-            <a href="/" class="logo">
+            <a href="index.html" class="logo">
               <i data-feather="shopping-bag"></i>
               <span>TeeSP</span>
             </a>
             
             <div class="flex">
               <div class="nav-links">
-                <a href="/" class="nav-link">
+                <a href="index.html" class="nav-link">
                   <i data-feather="home"></i>
                   Home
                 </a>
