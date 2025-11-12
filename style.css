@@ -1,0 +1,70 @@
+/* Custom styles that can't be achieved with Tailwind */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+body {
+    font-family: 'Poppins', sans-serif;
+    position: relative;
+    min-height: 100vh;
+    scroll-behavior: smooth;
+}
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('https://media.discordapp.net/attachments/1116046495603511357/1438128744450756791/Cropped_T-Shirt_Mockup.jpg?ex=6915c143&is=69146fc3&hm=0f0ec52c26bc56524fc77344eed2cb9286831bc40831989e073c17db17413f28&=&format=webp&width=928&height=619') center/cover no-repeat;
+    z-index: -2;
+}
+body::after {
+    content: 'TSP';
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 30vw;
+    font-weight: 900;
+    color: transparent;
+    -webkit-text-stroke: 2px rgba(255, 255, 255, 0.9);
+    text-shadow: 0 0 30px rgba(255, 255, 255, 0.8);
+    z-index: -1;
+    pointer-events: none;
+    transition: all 0.5s ease-out;
+}
+.scrolled::after {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.9);
+}
+/* Custom scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+/* Animation for product cards */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.product-card {
+    animation: fadeIn 0.5s ease-out forwards;
+    opacity: 0;
+}
+
+.product-card:nth-child(1) { animation-delay: 0.1s; }
+.product-card:nth-child(2) { animation-delay: 0.2s; }
+.product-card:nth-child(3) { animation-delay: 0.3s; }
+.product-card:nth-child(4) { animation-delay: 0.4s; }

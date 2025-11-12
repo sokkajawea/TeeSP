@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel - TeeSP</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    <script src="components/navbar.js"></script>
+    <script src="components/footer.js"></script>
+    <script src="script.js"></script>
+</head>
+<body>
+    <custom-navbar></custom-navbar>
+    
+    <main class="container mx-auto px-4 py-8">
+        <h1 class="text-3xl font-bold mb-8">Admin Dashboard</h1>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <!-- Add Product Form -->
+            <section class="bg-white rounded-xl shadow-md p-6">
+                <h2 class="text-xl font-bold mb-4">Add New Product</h2>
+                <form id="add-product-form">
+                    <div class="mb-4">
+                        <label class="block text-gray-700 mb-2">Product Name</label>
+                        <input type="text" id="product-name" class="w-full px-4 py-2 border rounded-lg" required>
+                    </div>
+                    <div class="mb-4">
+                        <label class="block text-gray-700 mb-2">Price</label>
+                        <input type="number" id="product-price" step="0.01" class="w-full px-4 py-2 border rounded-lg" required>
+                    </div>
+                    <div class="mb-4">
+                        <label class="block text-gray-700 mb-2">Image URL</label>
+                        <input type="url" id="product-image" class="w-full px-4 py-2 border rounded-lg" required>
+                    </div>
+                    <div class="mb-4">
+                        <label class="block text-gray-700 mb-2">Category</label>
+                        <select id="product-category" class="w-full px-4 py-2 border rounded-lg" required>
+                            <option value="t-shirts">T-Shirts</option>
+                            <option value="polo">Polo Shirts</option>
+                            <option value="dress">Dress Shirts</option>
+                            <option value="hoodies">Hoodies</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="bg-purple-600 text-white px-6 py-2 rounded-lg hover:bg-purple-700 transition">Add Product</button>
+                </form>
+            </section>
+
+            <!-- Product Management -->
+            <section class="bg-white rounded-xl shadow-md p-6">
+                <h2 class="text-xl font-bold mb-4">Manage Products</h2>
+                <div id="products-list" class="space-y-4">
+                    <!-- Products will be loaded here -->
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <custom-footer></custom-footer>
+    <script>
+        // Show welcome popup for admin
+        document.addEventListener('DOMContentLoaded', () => {
+            const popup = document.createElement('div');
+            popup.className = 'fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50';
+            popup.innerHTML = `
+                <div class="bg-white rounded-xl p-6 max-w-md w-full mx-4">
+                    <h2 class="text-xl font-bold mb-4">Welcome Admin!</h2>
+                    <p class="mb-4">You have successfully logged in to the admin dashboard.</p>
+                    <button onclick="this.parentElement.parentElement.remove()" 
+                            class="w-full bg-purple-600 text-white px-4 py-2 rounded-lg hover:bg-purple-700 transition">
+                        Continue
+                    </button>
+                </div>
+            `;
+            document.body.appendChild(popup);
+            feather.replace();
+        });
+    </script>
+</body>
+</html>
